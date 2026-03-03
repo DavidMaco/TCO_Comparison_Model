@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tco-comparison-model"
+version = "0.1.0"
+description = "TCO Comparison Model — Total Cost of Ownership for Chinese, Indian, and European Equipment & Spares"
+requires-python = ">=3.10"
+
+[tool.setuptools]
+py-modules = ["config"]
+
+[tool.setuptools.packages.find]
+include = ["analytics*", "api*", "data_ingestion*", "utils*", "database*"]
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | __pycache__
+  | logs
+  | \.pytest_cache
+)/
+'''
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501", "E402", "F401", "W503"]
+exclude = ["__pycache__", ".venv", "logs"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["analytics", "data_ingestion", "utils", "database", "api"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
