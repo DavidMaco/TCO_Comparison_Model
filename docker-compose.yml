@@ -1,0 +1,64 @@
+version: "3.9"
+
+services:
+  # MySQL database
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-tco_root_pw}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-tco_comparison}
+      MYSQL_USER: ${MYSQL_USER:-tco_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-tco_pass}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/01_schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./database/02_views.sql:/docker-entrypoint-initdb.d/02_views.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # FastAPI backend
+  api:
+    build: .
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    environment:
+      - TCO_DB_HOST=mysql
+      - TCO_DB_PORT=3306
+      - TCO_DB_USER=${MYSQL_USER:-tco_user}
+      - TCO_DB_PASSWORD=${MYSQL_PASSWORD:-tco_pass}
+      - TCO_DB_NAME=${MYSQL_DATABASE:-tco_comparison}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+
+  # Streamlit dashboard
+  dashboard:
+    build: .
+    command: streamlit run streamlit_app.py --server.port=8501 --server.address=0.0.0.0
+    ports:
+      - "8501:8501"
+    environment:
+      - TCO_DB_HOST=mysql
+      - TCO_DB_PORT=3306
+      - TCO_DB_USER=${MYSQL_USER:-tco_user}
+      - TCO_DB_PASSWORD=${MYSQL_PASSWORD:-tco_pass}
+      - TCO_DB_NAME=${MYSQL_DATABASE:-tco_comparison}
+      - TCO_DEV_MODE=true
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+
+volumes:
+  mysql_data:
