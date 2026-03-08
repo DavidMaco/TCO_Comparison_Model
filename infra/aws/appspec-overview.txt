@@ -1,0 +1,9 @@
+Suggested production path:
+1. Frontend: Vercel Next.js app
+2. Backend: AWS ECS Fargate service running FastAPI
+3. Database: Aurora PostgreSQL
+4. Cache: ElastiCache Redis
+5. Storage: S3
+6. Async jobs: SQS + worker service
+7. Secrets: AWS Secrets Manager
+8. Observability: CloudWatch, alarms, tracing
