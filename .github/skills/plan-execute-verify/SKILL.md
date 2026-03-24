@@ -15,17 +15,19 @@ Use whenever a task involves more than a single-line edit:
 
 ### Step 1 — Plan
 
-```
+```text
 Files to change: [list]
 Tests to run: [list of commands]
 Risk of regression: [low | medium | high]
 Sub-tasks: [numbered list]
 ```
 
+Register sub-tasks in the todo list tool; mark `in-progress` before starting each.
+
 ### Step 2 — Execute
 
 - Change one concern at a time
-- Read files before editing
+- Read files before editing them
 - Apply security standards throughout
 
 ### Step 3 — Verify
@@ -40,7 +42,7 @@ Then run `get_errors` on every modified file.
 
 ### Step 4 — Complete
 
-Mark each todo complete immediately after verification.
+Mark each todo complete immediately after it is verified.
 
 ## Discipline Constraints
 
