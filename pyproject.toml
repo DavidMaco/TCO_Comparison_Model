@@ -33,7 +33,7 @@ target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I"]
-ignore = ["E501", "E402", "F401", "W503"]
+ignore = ["E501", "E402", "F401"]
 exclude = ["__pycache__", ".venv", "logs"]
 
 [tool.ruff.lint.isort]
