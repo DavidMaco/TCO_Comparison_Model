@@ -7,14 +7,14 @@ Every output includes assumption provenance and evidence class tags.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass, field, asdict
+from dataclasses import asdict, dataclass, field
 from typing import Any
 
 import numpy as np
 import pandas as pd
 
 import config
-from utils.logging_config import get_logger, AuditLogger
+from utils.logging_config import AuditLogger, get_logger
 from utils.run_metadata import RunMetadata
 
 log = get_logger("tco_engine")

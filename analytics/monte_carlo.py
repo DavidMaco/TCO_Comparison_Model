@@ -12,8 +12,8 @@ import numpy as np
 import pandas as pd
 
 import config
-from analytics.tco_engine import TCOEngine, EquipmentSpec, TCOResult
-from utils.logging_config import get_logger, AuditLogger
+from analytics.tco_engine import EquipmentSpec, TCOEngine, TCOResult
+from utils.logging_config import AuditLogger, get_logger
 from utils.run_metadata import RunMetadata
 
 log = get_logger("monte_carlo")
@@ -39,7 +39,7 @@ def _perturb(base: float, sigma_pct: float, rng: np.random.Generator, floor: flo
     """Apply lognormal perturbation to a base value."""
     if base <= 0 or sigma_pct <= 0:
         return base
-    sigma = abs(base * sigma_pct)
+    _sigma = abs(base * sigma_pct)  # noqa: F841
     # Use lognormal to avoid negative values
     log_mean = np.log(base) - 0.5 * (sigma_pct ** 2)
     log_sigma = sigma_pct
@@ -69,7 +69,7 @@ class MonteCarloSimulator:
         from dataclasses import replace
 
         currency = config.REGION_CURRENCIES.get(spec.region, spec.currency)
-        fx_sigma = self.uncertainty.get("fx_rate_sigma_pct") or config.FX_VOLATILITIES.get(currency, 0.10)
+        _fx_sigma = self.uncertainty.get("fx_rate_sigma_pct") or config.FX_VOLATILITIES.get(currency, 0.10)  # noqa: F841
 
         perturbed = replace(
             spec,

@@ -4,24 +4,24 @@ REST API for TCO computation, scenario analysis, optimization, and reporting.
 """
 from __future__ import annotations
 
+import logging
 import os
 import time
-import logging
 from collections import defaultdict
+from typing import Any
 
 from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
-from typing import Any
 
 import config
-from analytics.tco_engine import TCOEngine, EquipmentSpec
-from analytics.monte_carlo import MonteCarloSimulator
-from analytics.scenario_engine import ScenarioEngine
-from analytics.financial_translator import FinancialTranslator
-from analytics.supplier_scorecard import SupplierScorecard
-from analytics.optimization import TCOptimizer
 from analytics.benchmarking import BenchmarkEngine
+from analytics.financial_translator import FinancialTranslator
+from analytics.monte_carlo import MonteCarloSimulator
+from analytics.optimization import TCOptimizer
+from analytics.scenario_engine import ScenarioEngine
+from analytics.supplier_scorecard import SupplierScorecard
+from analytics.tco_engine import EquipmentSpec, TCOEngine
 from utils.run_metadata import RunMetadata
 
 log = logging.getLogger("tco.api")

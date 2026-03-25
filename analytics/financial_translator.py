@@ -11,8 +11,8 @@ import numpy as np
 import pandas as pd
 
 import config
-from analytics.tco_engine import TCOResult, EquipmentSpec
-from utils.logging_config import get_logger, AuditLogger
+from analytics.tco_engine import EquipmentSpec, TCOResult
+from utils.logging_config import AuditLogger, get_logger
 from utils.run_metadata import RunMetadata
 
 log = get_logger("financial_translator")

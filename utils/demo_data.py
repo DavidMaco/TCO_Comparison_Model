@@ -6,7 +6,6 @@ from __future__ import annotations
 
 from analytics.tco_engine import EquipmentSpec
 
-
 # ─── Common Parameters ───────────────────────────────────────────────
 COMMON_SPEC_PARAMS = dict(
     category="CNC Machine",

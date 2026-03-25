@@ -1,6 +1,7 @@
 """Tests for Scenario Engine."""
-import pytest
 import pandas as pd
+import pytest
+
 from analytics.scenario_engine import ScenarioEngine
 
 

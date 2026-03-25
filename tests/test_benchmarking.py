@@ -1,6 +1,7 @@
 """Tests for Benchmarking Engine."""
 import pytest
-from analytics.benchmarking import BenchmarkEngine, INDUSTRY_FAILURE_RATES
+
+from analytics.benchmarking import INDUSTRY_FAILURE_RATES, BenchmarkEngine
 
 
 class TestBenchmarkEngine:

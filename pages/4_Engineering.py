@@ -3,19 +3,20 @@ TCO Comparison Model — Engineering View
 Reliability curves, maintenance planning, performance benchmarks.
 """
 import os
+
 os.environ.setdefault("TCO_DEV_MODE", "true")
 
-import streamlit as st
-import pandas as pd
 import numpy as np
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import streamlit as st
 
-from analytics.tco_engine import TCOEngine, EquipmentSpec
+from analytics.benchmarking import INDUSTRY_FAILURE_RATES, BenchmarkEngine
 from analytics.optimization import TCOptimizer
-from analytics.benchmarking import BenchmarkEngine, INDUSTRY_FAILURE_RATES
-from utils.run_metadata import RunMetadata
+from analytics.tco_engine import EquipmentSpec, TCOEngine
 from utils.demo_data import get_demo_specs
+from utils.run_metadata import RunMetadata
 
 st.set_page_config(page_title="TCO · Engineering View", page_icon="🔩", layout="wide")
 st.title("🔩 Engineering View")

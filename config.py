@@ -103,7 +103,9 @@ def _fetch_live_fx() -> dict:
     """3-tier failover: open.er-api → exchangerate-api → frankfurter."""
     if os.getenv("TCO_FX_OFFLINE"):
         return dict(_FX_STATIC_RATES)
-    import urllib.request, json as _json, logging as _log
+    import json as _json
+    import logging as _log
+    import urllib.request
     _apis = [FX_API_PRIMARY, FX_API_SECONDARY, FX_API_TERTIARY]
     for url in _apis:
         try:

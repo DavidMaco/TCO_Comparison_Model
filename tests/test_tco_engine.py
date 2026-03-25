@@ -1,6 +1,7 @@
 """Tests for the core TCO Engine."""
 import pytest
-from analytics.tco_engine import TCOEngine, EquipmentSpec, TCOResult
+
+from analytics.tco_engine import EquipmentSpec, TCOEngine, TCOResult
 
 
 class TestTCOEngine:

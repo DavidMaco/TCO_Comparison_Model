@@ -10,7 +10,6 @@ from sqlalchemy.engine import Engine
 
 import config
 
-
 _engine: Engine | None = None
 
 

@@ -4,6 +4,7 @@ Generates realistic synthetic equipment, supplier, and cost data
 for all 3 regions (China, India, Europe) across multiple categories.
 """
 import os
+
 os.environ.setdefault("TCO_DEV_MODE", "true")
 
 import csv

@@ -13,7 +13,7 @@ import pandas as pd
 
 import config
 from analytics.tco_engine import EquipmentSpec
-from utils.logging_config import get_logger, DataQualityLogger
+from utils.logging_config import DataQualityLogger, get_logger
 
 log = get_logger("data_ingestion")
 dq = DataQualityLogger()

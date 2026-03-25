@@ -1,6 +1,7 @@
 """Tests for Monte Carlo simulation engine."""
-import pytest
 import pandas as pd
+import pytest
+
 from analytics.monte_carlo import MonteCarloSimulator
 
 

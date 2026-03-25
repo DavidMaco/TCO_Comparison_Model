@@ -15,10 +15,10 @@ import pandas as pd
 from scipy import optimize as sp_optimize
 
 import config
-from analytics.tco_engine import TCOEngine, EquipmentSpec, TCOResult
 from analytics.monte_carlo import MonteCarloSimulator
 from analytics.supplier_scorecard import SupplierScorecard
-from utils.logging_config import get_logger, AuditLogger
+from analytics.tco_engine import EquipmentSpec, TCOEngine, TCOResult
+from utils.logging_config import AuditLogger, get_logger
 from utils.run_metadata import RunMetadata
 
 log = get_logger("optimization")

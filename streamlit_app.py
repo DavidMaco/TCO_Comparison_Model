@@ -3,6 +3,7 @@ TCO Comparison Model — Main Streamlit Application
 Multi-persona dashboard: Executive, Category Manager, Finance/CFO, Engineering.
 """
 import os
+
 os.environ.setdefault("TCO_DEV_MODE", "true")
 
 import streamlit as st

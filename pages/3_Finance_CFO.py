@@ -3,18 +3,19 @@ TCO Comparison Model — Finance / CFO View
 NPV, IRR, lifecycle cashflow, working capital, EBITDA impact.
 """
 import os
+
 os.environ.setdefault("TCO_DEV_MODE", "true")
 
-import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import streamlit as st
 
-from analytics.tco_engine import TCOEngine, EquipmentSpec
-from analytics.financial_translator import FinancialTranslator
-from utils.run_metadata import RunMetadata
-from utils.demo_data import get_demo_specs
 import config
+from analytics.financial_translator import FinancialTranslator
+from analytics.tco_engine import EquipmentSpec, TCOEngine
+from utils.demo_data import get_demo_specs
+from utils.run_metadata import RunMetadata
 
 st.set_page_config(page_title="TCO · Finance View", page_icon="💵", layout="wide")
 st.title("💵 Finance / CFO View")

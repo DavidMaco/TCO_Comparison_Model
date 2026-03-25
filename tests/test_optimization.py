@@ -1,5 +1,6 @@
 """Tests for Optimization Engine."""
 import pytest
+
 from analytics.optimization import TCOptimizer
 
 

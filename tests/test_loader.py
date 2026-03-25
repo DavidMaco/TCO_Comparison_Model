@@ -1,12 +1,16 @@
 """Tests for Data Ingestion / Loader."""
-import pytest
+import json
 import os
 import tempfile
-import json
+
 import pandas as pd
+import pytest
+
 from data_ingestion.loader import (
-    load_equipment_csv, load_supplier_csv, load_assumptions_json,
     DataValidationError,
+    load_assumptions_json,
+    load_equipment_csv,
+    load_supplier_csv,
 )
 
 

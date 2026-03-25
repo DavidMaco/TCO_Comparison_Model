@@ -3,20 +3,21 @@ TCO Comparison Model — Executive Dashboard
 Summary TCO comparison, risk heatmaps, financial impact overview.
 """
 import os
+
 os.environ.setdefault("TCO_DEV_MODE", "true")
 
-import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import streamlit as st
 
-from analytics.tco_engine import TCOEngine, EquipmentSpec
+import config
+from analytics.financial_translator import FinancialTranslator
 from analytics.monte_carlo import MonteCarloSimulator
 from analytics.scenario_engine import ScenarioEngine
-from analytics.financial_translator import FinancialTranslator
-from utils.run_metadata import RunMetadata
+from analytics.tco_engine import EquipmentSpec, TCOEngine
 from utils.demo_data import get_demo_specs
-import config
+from utils.run_metadata import RunMetadata
 
 st.set_page_config(page_title="TCO · Executive Dashboard", page_icon="📊", layout="wide")
 st.title("📊 Executive Dashboard")

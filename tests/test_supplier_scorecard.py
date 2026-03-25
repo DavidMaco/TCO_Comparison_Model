@@ -1,6 +1,7 @@
 """Tests for Supplier Scorecard."""
-import pytest
 import pandas as pd
+import pytest
+
 from analytics.supplier_scorecard import SupplierScorecard
 
 

@@ -3,18 +3,19 @@ TCO Comparison Model — Category Manager Workbench
 What-if scenario builder, assumption sliders, supplier scorecards.
 """
 import os
+
 os.environ.setdefault("TCO_DEV_MODE", "true")
 
-import streamlit as st
 import pandas as pd
 import plotly.express as px
+import streamlit as st
 
-from analytics.tco_engine import TCOEngine, EquipmentSpec
+import config
 from analytics.scenario_engine import ScenarioEngine
 from analytics.supplier_scorecard import SupplierScorecard
+from analytics.tco_engine import EquipmentSpec, TCOEngine
+from utils.demo_data import DEMO_SUPPLIERS, get_demo_specs
 from utils.run_metadata import RunMetadata
-from utils.demo_data import get_demo_specs, DEMO_SUPPLIERS
-import config
 
 st.set_page_config(page_title="TCO · Category Manager", page_icon="🔧", layout="wide")
 st.title("🔧 Category Manager Workbench")

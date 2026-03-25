@@ -1,8 +1,10 @@
 """Shared test fixtures for TCO Comparison Model."""
 import os
+
 os.environ.setdefault("TCO_DEV_MODE", "true")
 
 import pytest
+
 from analytics.tco_engine import EquipmentSpec
 from utils.run_metadata import RunMetadata
 

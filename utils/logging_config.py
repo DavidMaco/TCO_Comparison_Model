@@ -1,11 +1,10 @@
 """
 TCO Comparison Model — Logging Configuration
 """
+import json
 import logging
 import os
-import json
 from datetime import datetime, timezone
-
 
 LOG_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "logs")
 os.makedirs(LOG_DIR, exist_ok=True)

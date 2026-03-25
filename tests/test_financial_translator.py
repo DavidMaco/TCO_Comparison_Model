@@ -1,8 +1,9 @@
 """Tests for Financial Translator."""
-import pytest
 import pandas as pd
-from analytics.tco_engine import TCOEngine
+import pytest
+
 from analytics.financial_translator import FinancialTranslator
+from analytics.tco_engine import TCOEngine
 
 
 class TestFinancialTranslator:

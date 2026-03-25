@@ -11,7 +11,7 @@ os.environ.pop("TCO_API_KEY", None)
 import pytest
 from fastapi.testclient import TestClient
 
-from api.main import app, _hits
+from api.main import _hits, app
 
 # ─── Helpers ─────────────────────────────────────────────────────────
 

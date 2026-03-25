@@ -1,5 +1,6 @@
 """Tests for config module."""
 import os
+
 os.environ.setdefault("TCO_DEV_MODE", "true")
 
 import config
